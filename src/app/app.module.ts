@@ -5,6 +5,7 @@ import { HttpModule } from '@angular/http';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { AppRoutingModule } from './app-routing.module';
+import { CollectionModule } from './collection/collection.module';
 
 import { AppComponent } from './app.component';
 
@@ -18,6 +19,7 @@ import { AppComponent } from './app.component';
       HttpModule,
       BrowserAnimationsModule,
       AppRoutingModule,
+      CollectionModule,
   ],
   providers: [],
   bootstrap: [AppComponent]
