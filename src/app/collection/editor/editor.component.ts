@@ -1,15 +1,18 @@
 import { Component, OnInit } from '@angular/core';
+import { RemoteService } from '../remote.service';
 
-@Component({
-  selector: 'app-editor',
-  templateUrl: './editor.component.html',
-  styleUrls: ['./editor.component.css']
-})
+@Component( {
+    selector: 'app-editor',
+    templateUrl: './editor.component.html',
+    styleUrls: [ './editor.component.css' ]
+} )
 export class EditorComponent implements OnInit {
 
-  constructor() { }
+    itemList;
 
-  ngOnInit() {
-  }
+    constructor( private remote: RemoteService ) { }
+
+    ngOnInit() {
+    }
 
 }

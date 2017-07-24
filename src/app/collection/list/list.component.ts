@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { RemoteService } from '../remote.service';
+import { Observable } from 'rxjs/Observable';
 
 @Component({
   selector: 'app-list',
@@ -7,9 +9,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListComponent implements OnInit {
 
-  constructor() { }
+    itemList;
 
-  ngOnInit() {
-  }
+    constructor( private remote: RemoteService ) { }
+
+    getPyrex() {
+        return this.remote
+            .getPyrex()
+    }
+
+    ngOnInit(): void {
+        this.itemList = this.getPyrex();
+        console.log( this.itemList );
+    }
 
 }
