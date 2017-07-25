@@ -2,8 +2,12 @@
 
 <button class="uk-button uk-button-primary" routerLink="edit">NEW</button>
 
-<!-- <div class="uk-container">
+<!--<div class="uk-container">
     <ul class="uk-list uk-list-divider">
-        <li *ngFor="let item of itemList">{{ item.pattern }}, {{ item.size }}</li>
+        <li *ngFor="let item of itemList?.results">Price: ${{ item?.price }}</li>
     </ul>
-</div> -->
+</div>-->
+
+<div class="uk-container">
+    <h4>Current Average Price: {{ average | currency:'USD':true }}</h4>
+</div>
