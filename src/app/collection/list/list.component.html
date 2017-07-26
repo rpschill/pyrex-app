@@ -4,10 +4,10 @@
 
 <!--<div class="uk-container">
     <ul class="uk-list uk-list-divider">
-        <li *ngFor="let item of itemList?.results">Price: ${{ item?.price }}</li>
+        <li *ngFor="let item of itemList">Price: ${{ item?.price }}</li>
     </ul>
 </div>-->
 
 <div class="uk-container">
-    <h4>Current Average Price: {{ average | currency:'USD':true }}</h4>
+    <h4>Current Average Price: {{ average | async }}</h4>
 </div>

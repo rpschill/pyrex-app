@@ -22,10 +22,12 @@ export class ListComponent implements OnInit {
     }
     
     ngOnInit() {
-        this.average = this.getData();
+        this.getData();
+        console.log(this.itemList);
     }
 
     private getData() {
-        return this._remote.getData();
+        this._remote.calculateCurrentAvgPrice()
+            .then( data => this.average = data );
     }
 }
