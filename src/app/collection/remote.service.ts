@@ -7,19 +7,19 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class RemoteService {
 
-    private etsyUrl: string;
+    private etsyUrl: string = 'https://openapi.etsy.com/v2/listings/active.js?api_key=byl1k0uc18ste5t3c6qhm6rd&tags=gooseberry,pyrex,441&callback=JSONP_CALLBACK';
     private response;
     private itemList;
     private average;
 
-    constructor( private _http: Http, private _jsonp: Jsonp ) {
-        this.etsyUrl = 'https://openapi.etsy.com/v2/listings/active.js?api_key=byl1k0uc18ste5t3c6qhm6rd&tags=gooseberry,pyrex,441&callback=JSONP_CALLBACK';
-    }
+    
 
-    private getData(): Promise<Object[]> {
+    constructor( private _http: Http, private _jsonp: Jsonp ) {}
+
+    public getData() {
         return this._jsonp.get( this.etsyUrl )
-            .toPromise()
-            .then( response => response.json().results )
+            .map( data => data.json().results )
+            .subscribe( data => console.log( data['results'] ) );
     }
 
     /*public getData() {
@@ -43,8 +43,7 @@ export class RemoteService {
 
     public calculateCurrentAvgPrice() {
         let results;
-        this.getData()
-            .then( data => results = data );
+        results = this.getData();
         console.log( 'results: ', results );
         let runningTotal = 0;
         let avg;

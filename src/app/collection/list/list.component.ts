@@ -18,16 +18,13 @@ export class ListComponent implements OnInit {
     public average;
 
     constructor( private _remote: RemoteService ) {
-        this.etsyUrl = 'https://openapi.etsy.com/v2/listings/active.js?api_key=byl1k0uc18ste5t3c6qhm6rd&tags=gooseberry,pyrex,441&callback=JSONP_CALLBACK';
-    }
-    
-    ngOnInit() {
-        this.getData();
-        console.log(this.itemList);
     }
 
     private getData() {
         this._remote.calculateCurrentAvgPrice()
-            .then( data => this.average = data );
+    }
+    
+    ngOnInit() {
+        this.getData();
     }
 }

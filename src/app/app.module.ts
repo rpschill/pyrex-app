@@ -7,7 +7,6 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 // Imports for loading and configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-import { InMemoryDataService } from './in-memory-data.service';
 
 import { AppRoutingModule } from './app-routing.module';
 import { CollectionModule } from './collection/collection.module';
@@ -24,7 +23,6 @@ import { AppComponent } from './app.component';
       HttpModule,
       JsonpModule,
       HttpClientModule,
-      InMemoryWebApiModule.forRoot( InMemoryDataService ),
       BrowserAnimationsModule,
       AppRoutingModule,
       CollectionModule,
