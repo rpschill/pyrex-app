@@ -12,53 +12,43 @@ export class RemoteService {
     private itemList;
     private average;
 
-    
 
-    constructor( private _http: Http, private _jsonp: Jsonp ) {}
+
+    constructor(private _http: Http, private _jsonp: Jsonp) { }
 
     public getData() {
-        return this._jsonp.get( this.etsyUrl )
-            .map( data => data.json().results )
-            .subscribe( data => console.log( data['results'] ) );
-    }
-
-    /*public getData() {
-        return this.itemList = this._jsonp.request( this.etsyUrl, { method: 'Get' } )
-            .map(( data: any ) => data.json() )
-            .subscribe(( data: any ) => this.itemList = data.results );
-        setTimeout( this.calculateCurrentAvgPrice(), 2000 );
-        console.log('this.average: ', this.average );
-        return this.average;
-    }*/
-
-    /*public getData() {
-        return this._jsonp.request( this.etsyUrl, { method: 'Get' } )
+        return this._jsonp.get(this.etsyUrl)
             .toPromise()
-            .then( this.mapItems );
+            .then(this.extractData)
+            .catch(this.handleError);
     }
 
-    private mapItems( response: Response ) {
-        return response.json().results;
-    }*/
+    private extractData(res: Response) {
+        let body = res.json();
+        console.log('body: ', body.results);
+        return body.results;
+    }
 
-    public calculateCurrentAvgPrice() {
-        let results;
-        results = this.getData();
-        console.log( 'results: ', results );
+    private handleError(error: any): Promise<any> {
+        console.error('An error occurred', error);
+        return Promise.reject(error.message || error);
+    }
+
+    private calculateCurrentAvgPrice(response) {
         let runningTotal = 0;
         let avg;
-        /*for ( var i = 0; i <= results.length; i++ ) {
-            if ( results[ i ] ) {
-                runningTotal += Number( results[ i ].price );
-                console.log( 'price: ', results[ i ].price );
+        /*for ( var i = 0; i <= response.length; i++ ) {
+            if ( response[ i ] ) {
+                runningTotal += Number( response[ i ].price );
+                console.log( 'price: ', response[ i ].price );
                 console.log( 'running total: ', runningTotal );
             }
             else {
                 console.log( 'no price' );
             }
         }
-        avg = runningTotal / results.length;*/
-        return avg;
+        avg = runningTotal / response.length;
+        return avg;*/
     }
 
 }

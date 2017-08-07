@@ -21,10 +21,26 @@ export class ListComponent implements OnInit {
     }
 
     private getData() {
-        this._remote.calculateCurrentAvgPrice()
+        return this._remote.getData()
+            .then(data => data.json());
+    }
+
+    private calculateAverage(data) {
+        let length = data.length;
+        let avg = 0;
+        let runningTotal = 0;
+
+        for (let i = 0; i <= length; i++) {
+            if (data[i].price) {
+                runningTotal += Number(data[i].price);
+            }
+        }
+
+        return runningTotal / length;
     }
     
     ngOnInit() {
-        this.getData();
+        this.response = this.getData();
+        console.log('this.response: ', this.response);
     }
 }
