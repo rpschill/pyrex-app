@@ -8,6 +8,10 @@ const appRoutes: Routes = [
             {
                 path: 'collection',
                 loadChildren: 'app/collection/collection.module#CollectionModule'
+            },
+            {
+                path: 'patterns',
+                loadChildren: 'app/patterns/patterns.module#PatternsModule'
             }
         ]
     },

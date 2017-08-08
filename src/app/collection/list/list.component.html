@@ -9,5 +9,6 @@
 </div>-->
 
 <div class="uk-container">
-    <h4>Current Average Price: {{ response | async }}</h4>
+    <h4>Current Average Price: {{ average | currency: 'USD':true:'1.2-2' }}</h4>
+    <h5>{{ length }} {{ timestamp | date:'medium' }}</h5>
 </div>

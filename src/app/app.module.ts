@@ -8,8 +8,13 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 // Imports for loading and configuring the in-memory web api
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
+// Import Angularfire config from environment
+import { AngularFireModule } from 'angularfire2';
+import { environment } from '../environments/environment'; 
+
 import { AppRoutingModule } from './app-routing.module';
 import { CollectionModule } from './collection/collection.module';
+import { PatternsModule } from './patterns/patterns.module';
 
 import { AppComponent } from './app.component';
 
@@ -26,6 +31,8 @@ import { AppComponent } from './app.component';
       BrowserAnimationsModule,
       AppRoutingModule,
       CollectionModule,
+      AngularFireModule.initializeApp( environment.firebase ),
+      PatternsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

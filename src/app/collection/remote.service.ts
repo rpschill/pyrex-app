@@ -25,8 +25,24 @@ export class RemoteService {
 
     private extractData(res: Response) {
         let body = res.json();
-        console.log('body: ', body.results);
-        return body.results;
+        console.log( 'body: ', body );
+        let runningTotal = 0;
+        let avg = 0;
+        let data = body.results;
+        let length = data.length;
+        let results = {};
+
+        for ( let i = 0; i <= length; i++ ) {
+            if ( data[ i ] ) {
+                runningTotal += Number( data[ i ].price );
+            }
+        }
+
+        results[ 'avg' ] = runningTotal / length;
+        results[ 'length' ] = length;
+        results[ 'timestamp' ] = new Date();
+
+        return results;
     }
 
     private handleError(error: any): Promise<any> {

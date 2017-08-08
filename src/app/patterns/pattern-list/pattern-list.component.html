@@ -1,0 +1,16 @@
+<div class="uk-container">
+    <h1>Pyrex Patterns</h1>
+
+    <div uk-sortable class="uk-container">
+        <div class="uk-card uk-card-default uk-grid-collapse uk-child-width-1-6@m uk-margin" uk-grid *ngFor="let pattern of patterns" style="margin-bottom: 16px;">
+            <div class="uk-card-media-left uk-cover-container">
+                <img src="{{pattern.image_thumbnail}}" alt="{{pattern.pattern}}" uk-cover style="max-width: 200px; max-height: 200px;">
+                <canvas width="200px" height="200px"></canvas>
+            </div>
+            <div class="uk-card-body">
+                <h4 class="uk-card-title">{{pattern.pattern}}</h4>
+
+            </div>
+        </div>
+    </div>
+</div>

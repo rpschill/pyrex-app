@@ -1,0 +1,41 @@
+{
+    "pyrex": [
+        {
+            "id": "001",
+            "pattern": "Amoeba",
+            "models": [""], 
+            "colors": [
+                {pro
+                    "primary": "white",
+                    "secondary": "brown"
+                }
+            ],
+            "production-dates": [
+                {
+                    "from": "unknown",
+                    "to": "unknown"
+                }
+            ],
+            "description": "Brown and white flowers on white background",
+            "features": ["flowers", "amoebas"]
+        },
+        {
+            "id": "002",
+            "pattern": "Primary Colors",
+            "version": ["yellow", "green", "red", "blue"],
+            "models": [""],
+            "colors": [
+                {
+                    "primary": "yellow",
+                    "secondary": "white"
+                }
+            ],
+            "production-dates": [
+                {
+                    "from": "1945",
+                    "to": "1949"
+                }
+            ]
+        }
+    ]
+}

@@ -12,35 +12,31 @@ import 'rxjs/add/operator/map';
 export class ListComponent implements OnInit {
 
     private etsyUrl: string;
-    private response;
+    private response = {};
     public itemList;
     public results;
     public average;
+    public length;
+    public timestamp;
 
     constructor( private _remote: RemoteService ) {
     }
 
     private getData() {
         return this._remote.getData()
-            .then(data => data.json());
-    }
-
-    private calculateAverage(data) {
-        let length = data.length;
-        let avg = 0;
-        let runningTotal = 0;
-
-        for (let i = 0; i <= length; i++) {
-            if (data[i].price) {
-                runningTotal += Number(data[i].price);
-            }
-        }
-
-        return runningTotal / length;
+            .then( data => {
+                this.average = data.avg;
+                this.timestamp = data.timestamp;
+                if ( data.length === 1 ) {
+                    this.length = 'Based on one item at ';
+                }
+                else if ( data.length > 1 ) {
+                    this.length = 'Based on ' + data.length + ' items at ';
+                }
+            });
     }
     
     ngOnInit() {
-        this.response = this.getData();
-        console.log('this.response: ', this.response);
+        this.getData()
     }
 }

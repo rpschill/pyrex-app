@@ -5,6 +5,7 @@ import { CollectionWrapperComponent } from './collection-wrapper/collection-wrap
 import { ListComponent } from './list/list.component';
 import { EditorComponent } from './editor/editor.component';
 import { RemoteService } from './remote.service';
+import { DetailComponent } from './detail/detail.component';
 
 @NgModule( {
     imports: [
@@ -14,7 +15,8 @@ import { RemoteService } from './remote.service';
     declarations: [
         CollectionWrapperComponent,
         ListComponent,
-        EditorComponent
+        EditorComponent,
+        DetailComponent,
     ],
     providers: [
         RemoteService
