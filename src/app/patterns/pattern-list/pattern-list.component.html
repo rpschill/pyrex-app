@@ -1,15 +1,10 @@
-<div class="uk-container">
-    <h1>Pyrex Patterns</h1>
-
-    <div uk-sortable>
-        <div class="uk-inline uk-margin" *ngFor="let pattern of patterns">
-            <div class="uk-cover-container">
-                <img src="{{pattern.image_thumbnail}}" alt="{{pattern.pattern}}">
-            </div>
-            <div class="uk-card-body uk-overlay uk-position-bottom-left uk-light">
-                <h3 class="uk-card-title">{{pattern.pattern}}</h3>
-                <span class="uk-text-small">{{ pattern?.description }}</span>
+<div *ngFor="let pattern of patterns" class="w3-border">
+    <a [routerLink]="['detail', pattern.pattern]">
+        <div class="w3-display-container">
+            <img src="{{ pattern.image_thumbnail }}" alt="{{ pattern.pattern }}" class="w3-image" style="width: 100%;">
+            <div class="w3-padding w3-display-bottomright w3-large">
+                {{ pattern.pattern }}
             </div>
         </div>
-    </div>
+    </a>
 </div>

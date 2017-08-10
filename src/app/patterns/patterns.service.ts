@@ -7,13 +7,23 @@ import 'rxjs/add/operator/toPromise';
 @Injectable()
 export class PatternsService {
 
-    constructor( private _http: Http ) {}
+    constructor( private _http: Http ) { }
+    
+    private patternUrl = '../../assets/MOCK_DATA.json';
 
-    public getPatterns() {
+    public getPatternList() {
         return this._http
-            .get( '../../assets/MOCK_DATA.json' )
+            .get( this.patternUrl )
             .toPromise()
             .then( this.extractData );
+    }
+    
+    public getPatternDetail(id) {
+        return this._http
+            .get( this.patternUrl )
+            .toPromise()
+            .then( res => res.json().filter( pattern => pattern[pattern] === id )[0] )
+            .catch( this.handleError );
     }
 
     private extractData( res: Response ) {
