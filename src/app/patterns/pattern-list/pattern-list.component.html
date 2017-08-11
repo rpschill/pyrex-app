@@ -1,5 +1,5 @@
 <div *ngFor="let pattern of patterns" class="w3-border">
-    <a [routerLink]="['detail', pattern.pattern]">
+    <a [routerLink]="['detail', pattern.id]">
         <div class="w3-display-container">
             <img src="{{ pattern.image_thumbnail }}" alt="{{ pattern.pattern }}" class="w3-image" style="width: 100%;">
             <div class="w3-padding w3-display-bottomright w3-large">

@@ -22,7 +22,9 @@ export class PatternsService {
         return this._http
             .get( this.patternUrl )
             .toPromise()
-            .then( res => res.json().filter( pattern => pattern[pattern] === id )[0] )
+            .then( res => {
+                return res.json().filter( item => item.id === id )[ 0 ];
+            } )
             .catch( this.handleError );
     }
 

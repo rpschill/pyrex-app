@@ -1,7 +1,6 @@
-<p>
-  pattern-detail works!
-</p>
-
-<h1>{{ pattern?.pattern }}</h1>
+<div class="w3-display-container">
+    <img src="{{ pattern?.image_splash }}" class="w3-image">
+    <div class="w3-display-bottomright w3-container">{{ pattern?.pattern }}</div>
+</div>
 
 <button class="w3-button" [routerLink]="['/app/patterns']">Back</button>

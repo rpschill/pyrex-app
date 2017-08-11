@@ -30,8 +30,7 @@ export class PatternDetailComponent implements OnInit {
     }
 
     private getPattern( pattern ) {
-        return this._service.getPatternDetail( pattern )
-            .then( data => data );
+        return this._service.getPatternDetail( pattern );
     }
 
     ngOnInit() {
